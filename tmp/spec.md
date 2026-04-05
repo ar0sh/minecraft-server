@@ -36,8 +36,13 @@ Ubuntu Lenovo (server via SSH)
 On Ubuntu machine:
 
 ```bash
-sudo apt update
 sudo apt install openjdk-25-jdk -y
+```
+
+Set Java 25 as default:
+
+```bash
+export PATH=/usr/lib/jvm/java-25-openjdk-amd64/bin:$PATH
 ```
 
 Check:
@@ -46,7 +51,24 @@ Check:
 java -version
 ```
 
-✅ If you see version → good
+✅ If you see version 25 → good
+
+---
+
+# 🧱 STEP 0b — Open Firewall (One-time setup)
+
+Allow Minecraft server port:
+
+```bash
+sudo ufw allow 25565/tcp
+sudo ufw reload
+```
+
+Check status:
+
+```bash
+sudo ufw status
+```
 
 ---
 
@@ -181,6 +203,14 @@ eula=false → eula=true
 
 # 🚀 STEP 10 — Start server
 
+Make sure Java 25 is in PATH:
+
+```bash
+export PATH=/usr/lib/jvm/java-25-openjdk-amd64/bin:$PATH
+```
+
+Start server:
+
 ```bash
 ./start.sh
 ```
@@ -191,17 +221,23 @@ eula=false → eula=true
 Done (X.Xs)! For help, type "help"
 ```
 
+
+
 ---
 
 # 🌐 STEP 11 — Join your server
 
-On your Minecraft (Mac):
+On your Minecraft (Windows/Mac):
 
-Use:
+Use your Ubuntu server's **private IP** (find it with `ip addr` on Ubuntu):
 
 ```id="m4p8yc"
 <your-lenovo-ip>:25565
 ```
+
+Example: `192.168.123.45:25565`
+
+Note: Both machines must be on the same WiFi/network.
 
 ---
 
