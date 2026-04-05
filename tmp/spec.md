@@ -241,7 +241,40 @@ Note: Both machines must be on the same WiFi/network.
 
 ---
 
-# 🔁 STEP 12 — Update workflow (REAL DEV STYLE)
+# � STEP 12 — Give yourself operator permissions
+
+In the server console (SSH terminal where server is running):
+
+```bash
+op <your-minecraft-username>
+```
+
+Or edit `ops.json` and add your username:
+
+```bash
+nano ops.json
+```
+
+Add:
+```json
+[
+  {
+    "uuid": "",
+    "name": "YourMinecraftUsername",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
+```
+
+Then restart server. Now in Minecraft client you can use commands:
+- `/gamemode creative` - switch to creative mode
+- `/give @p diamond 64` - give yourself items
+- `/tp @p 100 64 100` - teleport
+
+---
+
+# �🔁 STEP 13 — Update workflow (REAL DEV STYLE)
 
 When you change something on Mac:
 
